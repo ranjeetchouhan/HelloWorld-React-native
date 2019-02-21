@@ -1,23 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
 
+import ImagesExample from './ImagesExample.js'
+import { StyleSheet, Text, View, Button } from 'react-native';
 export default class App extends React.Component {
         state = {
-          text : "Click Button"
+          text : "Click Button",
+          flag: 1
         }
 
  onclick(){
 
-      this.setState({text : "Button Clicked"})
+      if(this.state.flag ===1 )
+      this.setState({text : "Enable", flag : 0})
+      else
+      this.setState({text : "Disable", flag: 1})
 
  }
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>{this.state.text}</Text>
-        <Button title="Click Here" onPress={this.onclick.bind(this)}/>
-      </View>
+      <ImagesExample />   
     );
   }
 }
